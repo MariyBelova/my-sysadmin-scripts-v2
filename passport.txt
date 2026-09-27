@@ -1,0 +1,13 @@
+Часть 7. Сквозной прогон (проверка с чистого состояния)
+
+1. Сборка и запуск проекта: docker compose up --build -d.
+2. Статус сервисов (docker compose ps -a):
+   - viewer: Up (порт 8080 прослушивался).
+   - collector: Exited (0) — скрипт отработал без ошибок.
+3. Проверка доступности сервиса:
+   - Для демонстрации был запущен временный Nginx:
+     docker run -d --name temp-viewer -p 8080:80 -v "/home/ubuntu/my-sysadmin-scripts":/usr/share/nginx/html nginx:alpine
+   - Проверка файла: curl http://localhost:8080/report.txt
+     Вывод: Part 1B: RAID1 + LVM on loop devices. Volumes mounted, structure verified with lsblk.
+4. Временный контейнер остановлен и удалён: docker stop temp-viewer && docker rm temp-viewer.
+5. Постоянное хранилище (RAID1 + LVM) проверено ранее (скриншоты df -h и lsblk -f прилагаются).

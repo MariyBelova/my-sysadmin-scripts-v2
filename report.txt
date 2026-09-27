@@ -1,1 +1,1 @@
-Ошибка: нет прав на чтение /var/log/syslog. Запускай через sudo.
+Part 1B: RAID1 + LVM on loop devices. Volumes mounted, structure verified with lsblk.
